@@ -1,4 +1,4 @@
-package com.certifications.javase11.inheritance;
+package src.com.certifications.javase11.inheritance;
 
 public final class Biriyani extends Food{
 

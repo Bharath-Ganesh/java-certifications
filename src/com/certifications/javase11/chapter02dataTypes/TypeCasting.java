@@ -1,4 +1,4 @@
-package com.certifications.javase11.dataTypes;
+package src.com.certifications.javase11.chapter02dataTypes;
 
 public class TypeCasting {
     public static void main(String[] args) {

@@ -1,4 +1,6 @@
-package com.certifications.javase11.inheritance;
+package src.com.certifications.javase11.inheritance;
+
+import src.com.certifications.javase11.inheritance.Product;
 
 public class Food extends Product {
 

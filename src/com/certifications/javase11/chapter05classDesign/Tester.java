@@ -1,4 +1,5 @@
-package com.certifications.javase11.classDesign;
+package src.com.certifications.javase11.chapter05classDesign;
+
 
 public class Tester {
 

@@ -1,4 +1,4 @@
-package com.certifications.javase11.classesAndStatic;
+package src.com.certifications.javase11.chapter04classesAndStatic;
 
 import java.time.Period;
 

@@ -1,4 +1,4 @@
-package com.certifications.javase11.interfaces;
+package src.com.certifications.javase11.interfaces;
 
 public class Shoes extends Shop implements Product, Inventory {
 

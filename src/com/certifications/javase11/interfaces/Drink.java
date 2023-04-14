@@ -1,4 +1,4 @@
-package com.certifications.javase11.interfaces;
+package src.com.certifications.javase11.interfaces;
 
 public class Drink extends Shop implements Product{
     @Override
