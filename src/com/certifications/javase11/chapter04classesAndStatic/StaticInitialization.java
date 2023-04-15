@@ -5,49 +5,41 @@ import java.time.Period;
 public class StaticInitialization {
 
 
-    public static Period defaultExpiryPeriod;
+    public static Period staticDefaultExpiryPeriod;
 
-    /**
-     * Globally visible constant
+    /*
+     * 1. Globally visible constant
      * It's value is only read only being private
+     * Encapsulation is not required as it's read only.
      */
     public static final Period defaultExpiryPeriod2 = Period.ofDays(3);
-    public Period defaultExpiryPeriod3 = Period.ofDays(3);
 
-    /**
-     * Static Initializer runs once, before any other operation.
+
+    /*
+     * 2. Static Initializer runs once, before any other operation.
      * It's ran when classes are loaded.
      */
     static {
-        defaultExpiryPeriod = Period.ofDays(3);
+        staticDefaultExpiryPeriod = Period.ofDays(3);
     }
 
-    {
-        defaultExpiryPeriod3 = Period.ofDays(4);
-    }
 
     public static Period getDefaultExpiryPeriod() {
-        return defaultExpiryPeriod;
+        return staticDefaultExpiryPeriod;
     }
 
-    public static void setDefaultExpiryPeriod(Period defaultExpiryPeriod) {
-        StaticInitialization.defaultExpiryPeriod = defaultExpiryPeriod;
+    public static void setDefaultExpiryPeriod(Integer days) {
+        StaticInitialization.staticDefaultExpiryPeriod = Period.ofDays(days);
     }
 
     public static void main(String[] args) {
+        StaticInitialization.setDefaultExpiryPeriod(4);
         StaticInitialization obj1 = new StaticInitialization();
         StaticInitialization obj2 = new StaticInitialization();
-        obj1.setDefaultExpiryPeriod(Period.ofDays(4));
-        System.out.println(obj1.getDefaultExpiryPeriod().getDays());
-        System.out.println("Instance initializer : " +  obj1.defaultExpiryPeriod3.getDays());
-        System.out.println("Instance initializer : " +  obj2.defaultExpiryPeriod3.getDays());
-
-
-        /**
-         * You can see that the static initialization assigned a Period value : 3
-         * On re-assigning the period with a value 4 using the obj1 had also changed the value
-         * for obj2; It shows static variable are class level variable not object level
-         */
-        System.out.println(obj2.getDefaultExpiryPeriod().getDays());
+        obj1.setDefaultExpiryPeriod(2); //2
+        System.out.println(obj2.getDefaultExpiryPeriod().getDays()); // 2
+        StaticInitialization obj3 = new StaticInitialization();
+        System.out.println(obj3.getDefaultExpiryPeriod().getDays()); //2
+        System.out.println(obj1.getDefaultExpiryPeriod().getDays()); //2
     }
 }

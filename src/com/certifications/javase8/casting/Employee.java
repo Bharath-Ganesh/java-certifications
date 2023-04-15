@@ -1,4 +1,4 @@
-package com.certifications.javase8.casting;
+package src.com.certifications.javase8.casting;
 
 class Employee {
 

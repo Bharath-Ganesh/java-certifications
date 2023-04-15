@@ -1,4 +1,4 @@
-package src.com.certifications.javase11.chapter04classesAndStatic;
+package src.com.certifications.javase11.chapter04classesAndStatic.project;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -6,8 +6,9 @@ import java.math.RoundingMode;
 
 public class Product {
 
-    /**
-     * final keywords has to be initialized at runtime or in all the constructors
+    /*
+       final keyword is used to mark a constant
+     * instance final variables has to be initialized immediately or in all the constructors
      */
     public final BigDecimal DISCOUNT_RATE = BigDecimal.valueOf(0.1);
 

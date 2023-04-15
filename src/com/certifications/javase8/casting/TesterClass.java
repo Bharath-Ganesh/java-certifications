@@ -1,4 +1,6 @@
-package com.certifications.javase8.casting;
+package src.com.certifications.javase8.casting;
+
+import src.com.certifications.javase8.casting.Employee;
 
 public class TesterClass {
 

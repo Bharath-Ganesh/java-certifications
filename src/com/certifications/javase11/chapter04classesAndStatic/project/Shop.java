@@ -1,4 +1,6 @@
-package src.com.certifications.javase11.chapter04classesAndStatic;
+package src.com.certifications.javase11.chapter04classesAndStatic.project;
+
+import src.com.certifications.javase11.chapter04classesAndStatic.project.Product;
 
 import java.math.BigDecimal;
 
