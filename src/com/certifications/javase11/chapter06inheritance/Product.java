@@ -1,4 +1,4 @@
-package src.com.certifications.javase11.inheritance;
+package src.com.certifications.javase11.chapter06inheritance;
 
 public abstract class Product {
 

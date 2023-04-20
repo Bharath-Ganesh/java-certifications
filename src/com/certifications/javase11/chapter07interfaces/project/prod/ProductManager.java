@@ -1,9 +1,4 @@
-package src.com.certifications.javase11.inheritance.project.prod;
-
-import src.com.certifications.javase11.inheritance.project.prod.Rating;
-import src.com.certifications.javase11.inheritance.project.prod.Drink;
-import src.com.certifications.javase11.inheritance.project.prod.Food;
-import src.com.certifications.javase11.inheritance.project.prod.Product;
+package src.com.certifications.javase11.chapter07interfaces.project.prod;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

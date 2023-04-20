@@ -1,4 +1,4 @@
-package src.com.certifications.javase11.inheritance.project.prod;
+package src.com.certifications.javase11.chapter07interfaces.project.prod;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -6,14 +6,7 @@ import java.time.LocalTime;
 
 public class Food extends Product {
 
-/*
-2. Temporarily comment the no-args constructor of Product class.
-When you have commented out the product class no args constructor and given that Product class also have custom constructors,
-the food class on trying to invoke the no-args constructor of the parent class would result into an error.
-    public Food(){
-       super();
-       }
- */
+
 
     private LocalDate bestBefore;
 
@@ -27,19 +20,13 @@ the food class on trying to invoke the no-args constructor of the parent class w
         this.bestBefore = bestBefore;
     }
 
-    //9. Generate toString() method in the Food class.
-    /*
-    The super.toString() would invoke the parent class (Product) toString method.
-     */
+
     @Override
     public String toString() {
         return super.toString() + ", " + bestBefore;
     }
 
-    //14. Override method of getDiscount() in Food class to calculate discount based on bestBefore.
-    /*
-    Discount based on happy hours
-     */
+
     @Override
     public BigDecimal getDiscount() {
         LocalTime now = LocalTime.now();

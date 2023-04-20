@@ -1,4 +1,4 @@
-package src.com.certifications.javase11.inheritance.project.prod;
+package src.com.certifications.javase11.chapter06inheritance.project.prod;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
