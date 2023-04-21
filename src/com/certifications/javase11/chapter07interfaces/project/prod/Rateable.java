@@ -11,9 +11,9 @@ public interface Rateable<T> {
     /*
         By default the methods in the interfaces are public and abstract; hence they're greyed out.
      */
-    public abstract T applyRating(Rating rating);
+    T applyRating(Rating rating);
 
-    public default T applyRating(int stars){
+    default T applyRating(int stars) {
         return applyRating(convert(stars));
     }
 
@@ -25,11 +25,18 @@ public interface Rateable<T> {
         2. Private methods
         3. static methods
      */
-    public default Rating getRating(){
+
+    // The default methods needs not be override in the implementation class, but if there's a conflict between the
+    // parent class, the implementation must override the default method. The conflicts arise when a child class implements from
+    // two parent class and they both the have same method, to eliminate the conflict, the child class should override the
+    // default method.
+    default Rating getRating() {
+
         return DEFAULT_RATING;
     }
 
-    public static Rating convert(int stars){
-        return (stars>=0 && stars<=5)? Rating.values()[stars]:DEFAULT_RATING;
+    public static Rating convert(int stars) {
+
+        return (stars >= 0 && stars <= 5) ? Rating.values()[stars] : DEFAULT_RATING;
     }
 }

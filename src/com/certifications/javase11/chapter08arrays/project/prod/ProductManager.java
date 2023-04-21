@@ -1,4 +1,4 @@
-package src.com.certifications.javase11.chapter07interfaces.project.prod;
+package src.com.certifications.javase11.chapter08arrays.project.prod;
 
 import java.math.BigDecimal;
 import java.text.MessageFormat;
@@ -6,23 +6,12 @@ import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ProductManager {
 
-    //2. Modify ProductManager class to enable to store information about a Product and a review.
-    /*
-        At this point the ProductManager class would store information about a Product and a Review
-     */
-
-
-    //13. Add instance variable to the ProductManager class to print the Product report.
-    /*
-     All the implementation classes actually override the toString() to print the report.
-     But this is not end-user friendly, as we're hardcoding the format in our java code and we can't make use of different locale
-     so as print the product report.
-     */
 
     private Locale locale;
     private ResourceBundle resource;
@@ -30,11 +19,15 @@ public class ProductManager {
     private NumberFormat moneyFormat;
 
     private Product product;
-    private Review review;
+    //1. Update ProductManager review instance to be an array.
+    /*
+    Now for a particular Product, we can take many reviews
+     */
+    private Review[] reviews = new Review[5];
 
     public ProductManager(Locale locale) {
         this.locale = locale;
-        resource = ResourceBundle.getBundle("src.com.certifications.javase11.chapter07interfaces.project.prod.resources",locale);
+        resource = ResourceBundle.getBundle("src.com.certifications.javase11.chapter07interfaces.project.prod.resources", locale);
         dateFormat = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).localizedBy(locale);
         moneyFormat = NumberFormat.getCurrencyInstance(locale);
     }
@@ -51,29 +44,53 @@ public class ProductManager {
     }
 
     public Product reviewProduct(Product product, Rating rating, String comments) {
-        review = new Review(rating, comments);
-        this.product = product.applyRating(rating);
+        // 2. Update reviewProduct().
+        /*
+        Arrays.copyOf() method will copy the existing array into a new array of larger length
+         */
+        if (reviews[reviews.length - 1] != null) {
+            reviews=Arrays.copyOf(reviews, reviews.length + 5);
+        }
+        int sum = 0, i = 0;
+        //The var indicates whether the review has been added to the list.
+
+        boolean reviewedSet = false;
+
+        while (i < reviews.length && !reviewedSet) {
+            if (reviews[i] == null) {
+                reviews[i] = new Review(rating, comments);
+                reviewedSet = true;
+            }
+            sum += reviews[i].getRating().ordinal();
+            i++;
+        }
+        //update the product rating with the average value
+        this.product = product.applyRating(Rateable.convert(Math.round((float) sum / i)));
         return this.product;
     }
 
-    public void printProductReport(){
-        StringBuilder text =new StringBuilder();
+    public void printProductReport() {
+        StringBuilder text = new StringBuilder();
         text.append(MessageFormat.format(resource.getString("product"),
                 product.getName(),
                 moneyFormat.format(product.getPrice()),
                 product.getRating().getStars(),
                 dateFormat.format(product.getBestBefore())));
         text.append("\n");
-        if(review!=null){
+        for (Review review : reviews) {
+            if (review == null) {
+                break;
+            }
             text.append(MessageFormat.format(resource.getString("review"),
                     review.getRating().getStars(),
                     review.getComments()));
-
-        }else{
-            text.append(resource.getString("no.reviews"));
+            text.append("\n");
         }
 
-        text.append("\n");
+        if(reviews[0]==null){
+            text.append(resource.getString("no.reviews"));
+            text.append("\n");
+        }
 
         System.out.println(text);
     }

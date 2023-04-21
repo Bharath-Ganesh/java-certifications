@@ -68,7 +68,7 @@ public abstract class Product {
     /*
     The apply rating returns an instance of Product, not specifically of Drink or Food class.
     To fix this issue, Product class needs to treat this operation as something that needs to implemented by it's subtypes.
-    Solution: Make this an abstract method, which in-turn would ask you to make the product class also abstract.
+    Solution: Make this an abstract method, which in-turn would ask you to make the Product class also abstract.
     The abstract method cannot have implementation.
     The concrete classes or the implementation classes have to override the abstract method.
      */

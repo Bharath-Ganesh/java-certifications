@@ -1,4 +1,4 @@
-package src.com.certifications.javase11.chapter07interfaces.project.prod;
+package src.com.certifications.javase11.chapter08arrays.project.prod;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -7,17 +7,13 @@ import java.util.Objects;
 
 public abstract class Product implements Rateable<Product> {
 
-    /**
-     * final keywords has to be initialized at runtime or in all the constructors
-     */
+
     public final BigDecimal DISCOUNT_RATE = BigDecimal.valueOf(0.1);
 
     private final int id;
     private final String name;
     private final BigDecimal price;
     private Rating rating;
-
-
 
     Product(int id, String name, BigDecimal price) {
         this(id, name, price, Rating.NOT_RATED);

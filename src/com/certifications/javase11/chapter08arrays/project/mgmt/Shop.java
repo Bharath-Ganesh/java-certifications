@@ -1,13 +1,11 @@
-package src.com.certifications.javase11.chapter07interfaces.project.mgmt;
+package src.com.certifications.javase11.chapter08arrays.project.mgmt;
 
 
-import src.com.certifications.javase11.chapter07interfaces.project.prod.Food;
-import src.com.certifications.javase11.chapter07interfaces.project.prod.Product;
-import src.com.certifications.javase11.chapter07interfaces.project.prod.ProductManager;
-import src.com.certifications.javase11.chapter07interfaces.project.prod.Rating;
+import src.com.certifications.javase11.chapter08arrays.project.prod.Product;
+import src.com.certifications.javase11.chapter08arrays.project.prod.ProductManager;
+import src.com.certifications.javase11.chapter08arrays.project.prod.Rating;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Locale;
 
 public class Shop {
@@ -18,10 +16,13 @@ public class Shop {
         ProductManager pm = new ProductManager(Locale.CANADA);
         Product p1 = pm.createProduct(101, "Tea", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
         pm.printProductReport();
-        pm.reviewProduct(p1, Rating.FOUR_STAR, "Nice hot cup of coffee");
+        p1 = pm.reviewProduct(p1, Rating.FOUR_STAR, "Nice hot cup of coffee");
+        pm.reviewProduct(p1, Rating.TWO_STAR, "Rather weak tea");
+        pm.reviewProduct(p1, Rating.FOUR_STAR, "Fine tea");
+        pm.reviewProduct(p1, Rating.FOUR_STAR, "Awesome tea");
+        pm.reviewProduct(p1, Rating.FIVE_STAR, "Perfect");
+        pm.reviewProduct(p1, Rating.THREE_STAR, "Maybe lemon");
         pm.printProductReport();
-
-
 //        Product p2 = pm.createProduct(102, "Coffee", BigDecimal.valueOf(1.99), Rating.FOUR_STAR);
 //        Product p3 = pm.createProduct(103, "Cake", BigDecimal.valueOf(3.99), Rating.FIVE_STAR, LocalDate.now().plusDays(2));
 //        Product p4 = pm.createProduct(105,"Cookie",BigDecimal.valueOf(3.99), Rating.TWO_STAR,LocalDate.now());

@@ -1,40 +1,21 @@
 package src.com.certifications.javase11.chapter07interfaces;
 
+import java.time.LocalDate;
+import java.util.Random;
+
 public interface Product {
 
-    /**
-     * The concrete methods in the child classes should be able to uniquely distinguish all the inherited methods
-     * from the interfaces and extended classes.
-     */
-    public static String CEO = "Sundar pichai";
+    public static int DEFAULT_ID= new Random().nextInt(10);
 
-    /**
-     * The methods are by default abstract and public
-     */
-    void buy();
+    public static LocalDate DEFAULT_DATE= LocalDate.now().plusDays(2);
 
-    /**
-     * The default methods are concrete methods that are possible in interfaces.
-     *
-     * @return
-     */
-    default String manager() {
-        return "Inventory manager";
+    public default int  getId(){
+        return DEFAULT_ID;
     }
 
 
-    /**
-     * public static methods are also available interfaces
-     *
-     * @return
-     */
-    private String getCeo() {
-        return getCeoStatic();
+    default LocalDate  getExpiryDate(){
+        return DEFAULT_DATE;
     }
-
-    public static String getCeoStatic() {
-        return CEO;
-    }
-
 
 }
