@@ -1,4 +1,4 @@
-package src.com.certifications.javase11.nestedClasses;
+package src.com.certifications.javase11.chapter10NestedClass;
 
 import java.util.Random;
 
