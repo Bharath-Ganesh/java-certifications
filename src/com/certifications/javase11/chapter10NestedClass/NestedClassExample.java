@@ -8,9 +8,18 @@ public class NestedClassExample {
 
     private static Integer staticOuterId = 1;
 
+
+    NestedClassExample.StaticNested staticInner=new NestedClassExample.StaticNested();
+    private Integer outerIdFromStatic=staticInner.id;
+
+
+
+    NestedClassExample.MemberClassPrivate memberClassPrivate=new NestedClassExample().new MemberClassPrivate();
+    private Integer outerIdFromMember =memberClassPrivate.id;
+
     //Local inner class which is defined in the method context of a method.
     public void outerClassMethod(){
-        final int val=1;
+        int val=1;
 
         class LocalInnerClass{
 
@@ -32,11 +41,8 @@ public class NestedClassExample {
     public static class StaticNested {
         //Can only access static variable and methods of the outer class.
         //   private Integer id=outerId;
-
         private Integer id = staticOuterId;
-
     }
-
 
 
     public MemberClass createMemberClass() {
@@ -85,7 +91,6 @@ public class NestedClassExample {
     // Anonymous inner class is associated with an inline implementation of an interface or a class.
 
     public static void methodInitialize(NestedClassExample outer) {
-
         NestedClassExample.MemberClassPrivate memberClassPrivate = outer.createMemberClassPrivate();
         memberClassPrivate.id = 2;
 

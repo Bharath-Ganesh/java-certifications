@@ -20,5 +20,7 @@ public class NestedClassExampleTest {
         NestedClassExample.MemberClassDefault memberClassDefault = outer.createMemberClassDefault();
         System.out.println(memberClassDefault.getId());
 
+
+
     }
 }
