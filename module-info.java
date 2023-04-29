@@ -1,2 +1,3 @@
-module $MODULE_NAME$ {
+module java.certifications {
+    requires java.logging;
 }
