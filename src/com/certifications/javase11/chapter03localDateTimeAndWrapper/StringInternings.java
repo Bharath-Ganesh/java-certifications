@@ -25,9 +25,9 @@ public class StringInternings {
         System.out.println(areTheySameObject); //false
 
 
-        //4
-        c.intern();
-        System.out.println(c==teaTxt); //false
+        //4. In String interning, only one copy of the String will be maintained in the string pool.
+        String intern = c.intern();
+        System.out.println("Intern: "+ String.valueOf(intern==teaTxt).toLowerCase()); //false
 
 
         //5
@@ -50,7 +50,14 @@ public class StringInternings {
         int lastIndex = c.lastIndexOf('t');
         System.out.println(lastIndex); //4
 
-        /**
+        //             012345678910
+        String hello ="Hello World";
+        int i = hello.indexOf("l"); // first occurrence : 2
+        i=hello.indexOf("l",4); // first occurrence of 'l' starting from index 4; :9
+        i = hello.lastIndexOf("l",4); // last occurrence of 'l' in the reverse order from index 4: 3
+        System.out.println("Index:" + i);
+
+        /*
          * StringBuilder
          * // They're not thread safe
          */

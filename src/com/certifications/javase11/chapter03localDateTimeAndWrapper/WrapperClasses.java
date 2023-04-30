@@ -4,12 +4,13 @@ public class WrapperClasses {
 
     public static void main(String[] args) {
         int a=23;
-        /**
+        /*
          * auto boxing
          * Here we are creating a wrapper box of Integer type around the primitive variable a
+         * It accepts both string and int value.
          */
         Integer b=Integer.valueOf(a);
-        /**
+        /*
          * auto-unboxing
          */
         int c = b.intValue();
@@ -17,6 +18,8 @@ public class WrapperClasses {
         //Here the conversion of variable a to the wrapper class of type Integer, hence it's auto boxing
         b=a; // auto-boxing
         c=b; // un-boxing
+
+
 
 
         //Create wrapper or primitive out of the string
