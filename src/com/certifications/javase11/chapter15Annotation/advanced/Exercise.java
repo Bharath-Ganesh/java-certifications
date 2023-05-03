@@ -14,7 +14,6 @@ public @interface Exercise {
     // Adding a Constant Variable
     // Annotation variables are implicitly public, static, and final
     public static final int MAX_VOLTAGE = 18;
-
 }
 
 

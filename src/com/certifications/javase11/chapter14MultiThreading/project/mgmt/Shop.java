@@ -52,7 +52,7 @@ public class Shop {
             // This method write lock
             Product product = pm.reviewProduct(productId, Rating.FOUR_STAR, "Yet another review!!!!!!!");
             log.append((product != null) ? "\nProduct " + productId + "reviewed" : "\nProduct " + productId + "not reviewed reviewed");
-            pm.printProductReport(productId,languageTag,clientId);
+            pm.printProductReport(productId, languageTag, clientId);
             log.append(clientId + " Generated report for " + productId + " product");
             log.append("\n-\tend of the log\t-\n");
             return log.toString();
@@ -64,12 +64,12 @@ public class Shop {
             .collect(Collectors.toList());
 
         // You have created 5 callable objects, that are going to execute using a pool of three threads.
-        ExecutorService executorService= Executors.newFixedThreadPool(3);
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
 
         try {
             List<Future<String>> results = executorService.invokeAll(clients);
             executorService.shutdown();
-            results.forEach(result->{
+            results.forEach(result -> {
                 try {
                     System.out.println(result.get());
                 } catch (InterruptedException | ExecutionException ex) {

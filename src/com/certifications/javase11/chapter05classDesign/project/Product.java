@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 
 public class Product {
 
-    /**
+    /*
      * final keywords has to be initialized at runtime or in all the constructors
      */
     public final BigDecimal DISCOUNT_RATE = BigDecimal.valueOf(0.1);

@@ -6,6 +6,7 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Currency;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -20,6 +21,7 @@ public class LocalizationAndFormatMessage {
         Double tax = 0.2;
         int quantity = 12345;
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(ukLocale);
+
         NumberFormat percentageFormat = NumberFormat.getPercentInstance(ukLocale);
         NumberFormat numberFormat = NumberFormat.getNumberInstance(ukLocale);
         String formattedPrice = currencyFormat.format(price);

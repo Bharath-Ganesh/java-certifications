@@ -19,7 +19,8 @@ public class MethodOverLoading {
     Method overloading in java is a feature that allows a class to have more than one method with the same name, but with different parameters.
 
     1. By changing the number of parameters
-    2. By changing the data type of parameters overloading by changing the number of parameters A method can be overloaded by changing the number of parameters.
+    2. By changing the data type of parameters overloading by changing the number of parameters
+     A method can be overloaded by changing the number of parameters.
     3. Different order of parameters
      */
 
@@ -30,7 +31,8 @@ public class MethodOverLoading {
 
     /*
     Method overloading has nothing to do with return-type.
-If there are two methods of the same signature within a class in the program, then Ambiguity Error comes, whether their return-type is different or not.
+If there are two methods of the same signature within a class in the program, then Ambiguity Error comes, whether
+their return-type is different or not.
 This means that method overloading has no relation with return-type.
      */
     // 3. Different order of parameters

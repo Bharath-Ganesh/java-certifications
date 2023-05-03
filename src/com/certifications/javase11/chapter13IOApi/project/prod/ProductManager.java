@@ -285,6 +285,7 @@ public class ProductManager {
         Collections.sort(reviews);
 
         Path productFile = reportsFolder.resolve(MessageFormat.format(config.getString("report.file"), product.getId()));
+
         try (PrintWriter out = new PrintWriter(new OutputStreamWriter(Files.newOutputStream(productFile, StandardOpenOption.CREATE), "UTF-8"))) {
             //System.lineSeparator() Provide platform specific line separator.
             out.append(formatter.formatProduct(product) + System.lineSeparator());
